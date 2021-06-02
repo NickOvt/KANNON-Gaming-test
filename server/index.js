@@ -28,7 +28,6 @@ app.post('/api', (req, response) => {
     fetch("https://restcountries.eu/rest/v2/all")
     .then(res => res.json())
     .then(data => {
-        console.log(data.filter(country => countriesArray.some(n => country.name.toLowerCase().includes(n.toLowerCase()))));
         response.json(data.filter(country => countriesArray.some(n => country.name.toLowerCase().includes(n.toLowerCase()))));
     });
 });
