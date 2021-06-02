@@ -4,9 +4,14 @@ const fetch = require('node-fetch');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+app.use(express.json())
 
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello from server!" });
+app.get("/api", (req, response) => {
+    fetch("https://restcountries.eu/rest/v2/all")
+    .then(res => res.json())
+    .then(data => {
+        response.json(data);
+    })
 });
 
 app.get("/api/:countryName", (req, response) => {
@@ -15,7 +20,19 @@ app.get("/api/:countryName", (req, response) => {
     .then(data => {
         response.json(data[0].name);
     })
-})
+});
+
+app.post('/api', (req, response) => {
+    const countriesArray = req.body;
+   
+    fetch("https://restcountries.eu/rest/v2/all")
+    .then(res => res.json())
+    .then(data => {
+        console.log(data.filter(country => countriesArray.some(n => country.name.toLowerCase().includes(n.toLowerCase()))));
+        response.json(data.filter(country => countriesArray.some(n => country.name.toLowerCase().includes(n.toLowerCase()))));
+    });
+});
+
   
 app.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
