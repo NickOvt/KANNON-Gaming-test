@@ -4,13 +4,13 @@ import CountryList from './Components/CountryList/CountryList';
 import CountryFilter from './Components/AllCountriesFilter/CountriesFilter';
 
 function App() {
-    return (
-        <>
-            <SingleCountry />
-            <CountryList />
-            <CountryFilter />
-        </>
-    );
+  return (
+    <>
+      <SingleCountry />
+      <CountryList />
+      <CountryFilter />
+    </>
+  );
 }
 
 export default App;

@@ -8,7 +8,8 @@
     "start": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,md,html,css}\""
   },
   "keywords": [],
   "author": "Nikolai Ovtsinnikov",
@@ -22,16 +23,20 @@
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "5.3.1",
     "image-webpack-loader": "^7.0.1",
+    "prettier": "^2.3.0",
     "style-loader": "^2.0.0",
     "webpack": "5.38.1",
     "webpack-cli": "4.7.0",
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

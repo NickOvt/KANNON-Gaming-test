@@ -1,11 +1,16 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-function Country(props) {
-    return(
-        <>
-            <p>Hello! From Country component: {props.name}</p>
-        </>
-    );
+function Country({ name }) {
+  return (
+    <>
+      <p>Hello! From Country component: {name}</p>
+    </>
+  );
 }
+
+Country.propTypes = {
+  name: PropTypes.string,
+};
 
 export default Country;
