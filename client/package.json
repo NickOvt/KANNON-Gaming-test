@@ -7,7 +7,7 @@
     "webpack": "webpack",
     "start": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./src --ignore-path .gitignore",
+    "lint": "eslint ./src",
     "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
@@ -34,5 +34,6 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
-  }
+  },
+  "proxy": "http://localhost:3000"
 }
