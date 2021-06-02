@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 
-function Country() {
+function Country(props) {
     return(
         <>
-            <h1>This is a country!</h1>
+            <h1>Hello! From Country component: {props.name}</h1>
         </>
     );
 }
