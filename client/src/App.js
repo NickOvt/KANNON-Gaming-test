@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
-import SingleCountry from './components/SingleCountry/SingleCountry';
-import CountryList from './components/CountryList/CountryList';
-import CountryFilter from './components/AllCountriesFilter/CountriesFilter';
+import SingleCountry from './components/singleCountry/SingleCountry';
+import CountryList from './components/countryList/CountryList';
+import CountryFilter from './components/allCountriesFilter/CountriesFilter';
 
 import { Provider } from 'react-redux';
 import store from './store';
