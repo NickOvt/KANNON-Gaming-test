@@ -20,6 +20,7 @@ mongoose.connect(db, {
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/countries', require('./routes/api/countries'));
+app.use('/api/casino', require('./routes/api/casino'));
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
