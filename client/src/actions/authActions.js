@@ -15,6 +15,7 @@ import axios from 'axios';
 export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
+  console.info(tokenConfig(getState));
 
   axios
     .get('/api/auth/user', tokenConfig(getState))
@@ -25,6 +26,7 @@ export const loadUser = () => (dispatch, getState) => {
       })
     )
     .catch((err) => {
+      console.warn('Negative answer!');
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
         type: AUTH_ERROR,
@@ -33,44 +35,59 @@ export const loadUser = () => (dispatch, getState) => {
 };
 
 // Register User
-export const register = ({name, email, password}) => (dispatch) => {
-  // Headers
-  const config = {
-    headers: {
-      'Content-Type': "application/json"
-    }
+export const register =
+  ({ name, email, password }) =>
+  (dispatch) => {
+    // Headers
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    // Request body
+    const body = JSON.stringify({ name, email, password });
+
+    axios
+      .post('api/users', body, config)
+      .then((res) =>
+        dispatch({
+          type: REGISTER_SUCCESS,
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        dispatch(
+          returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL')
+        );
+        dispatch({
+          type: REGISTER_FAIL,
+        });
+      });
+    };
+
+// Logout User
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS
   }
-
-  // Request body
-  const body = JSON.stringify({name, email, password});
-
-  axios.post("api/users", body, config)
-  .then(res => dispatch({
-    type: REGISTER_SUCCESS,
-    payload: res.data
-  }))
-  .catch(err => {
-    dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
-    dispatch({
-      type: REGISTER_FAIL
-    });
-  });
 }
 
 // Setup config/ headers and token
 export const tokenConfig = (getState) => {
   // Get token from localstorage
   const token = getState().auth.token;
-
   // Headers
-  const headers = {
-    'Content-type': 'application/json',
+  const config = {
+    headers: {
+      'Content-type': 'application/json',
+    }
   };
 
   // If token, add to header
   if (token) {
-    headers['x-auth-token'] = token;
+    config.headers['x-auth-token'] = token;
   }
 
-  return headers;
+  return config;
 };

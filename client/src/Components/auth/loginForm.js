@@ -1,11 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 
 function CountryList() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [pwd, setPwd] = useState('');
-  const [errors, setErrors] = useState({});
-
   return (
     <>
       <form action=''>
