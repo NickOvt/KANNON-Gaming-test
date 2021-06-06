@@ -37,8 +37,6 @@ function resultOfSpin(spinResult){
 
 router.get("/slot", auth, (req, res) => {
   const resultOfSpinValue = resultOfSpin(spin([reel1, reel2, reel3]));
-
-  const filter = {_id: req.user.id};
  
   if(resultOfSpinValue.isWin) {
     User.findById(req.user.id)
