@@ -42,7 +42,6 @@ router.get("/slot", auth, (req, res) => {
   .select("-password")
   .then(user => {
     const currentUserCoins = user.coins;
-    console.log(currentUserCoins);
     if(currentUserCoins - 1 > 0) {
       const newCoins = currentUserCoins + resultOfSpinValue.coinsWon - 1;
       User.updateOne({_id: user._id}, {coins: newCoins}, (err) => {

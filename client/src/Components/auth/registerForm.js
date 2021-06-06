@@ -47,6 +47,7 @@ function RegisterForm() {
   return (
     <>
       {msg ? <h1>{msg}</h1> : null}
+      <h4>Register</h4>
       <form onSubmit={onSubmit}>
         <label htmlFor='name'>Name</label>
         <input
