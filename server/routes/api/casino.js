@@ -7,10 +7,8 @@ const reel3 = ["lemon", "apple", "lemon", "apple", "cherry", "lemon", "banana", 
 
 function spin(arrayOfReels) {
   let spinResult = [];
-  let n;
   
   for(let i = 0; i < arrayOfReels.length; i++) {
-    //n = crypto.randomInt(0, arrayOfReels[i].length);
     spinResult.push(arrayOfReels[i][Math.floor(Math.random() * arrayOfReels[i].length)]);
   }
 
