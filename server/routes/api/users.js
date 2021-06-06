@@ -8,10 +8,18 @@ const User = require("../../models/User");
 
 router.post("/", async (req, res) => {
   const {name, email, password} = req.body;
+  const nameRegex = /([A-Z][a-zA-Z]*)/;
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-  // Simple validation
+  // Full validation
   if(!name || !email || !password) {
     return res.status(400).json({msg: "Please enter all fields"});
+  }
+  if(nameRegex.test(name) || emailRegex.test(email)) {
+    return res.status(400).json({msg: "Invalid name or email"}); 
+  }
+  if(password.length < 6) {
+    return res.status(400).json({msg: "Password must be more than 6 symbols"}); 
   }
 
   // Check for existing user
