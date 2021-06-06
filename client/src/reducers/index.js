@@ -6,5 +6,5 @@ import casinoReducer from './casinoReducer';
 export default combineReducers({
   auth: authReducer,
   error: errorReducer,
-  casino: casinoReducer
+  casino: casinoReducer,
 });

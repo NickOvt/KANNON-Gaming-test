@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../../actions/authActions';
-import {clearErrors} from '../../actions/errorActions';
+import { clearErrors } from '../../actions/errorActions';
 
 function RegisterForm() {
   const [user, setUser] = useState({
@@ -15,7 +15,7 @@ function RegisterForm() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(error.id === 'REGISTER_FAIL') {
+    if (error.id === 'REGISTER_FAIL') {
       setMsg(error.msg.msg);
     } else {
       setMsg(null);
@@ -46,7 +46,7 @@ function RegisterForm() {
 
   return (
     <>
-      {msg ? (<h1>{msg}</h1>) : null}
+      {msg ? <h1>{msg}</h1> : null}
       <form onSubmit={onSubmit}>
         <label htmlFor='name'>Name</label>
         <input

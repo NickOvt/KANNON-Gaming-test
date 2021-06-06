@@ -9,21 +9,21 @@ import SlotMachine from '../components/casino/SlotMachine';
 function UserPage() {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
- return (
+  return (
     <>
       {isAuthenticated ? (
         <>
           <Logout />
           <SlotMachine />
         </>
-        ) : (
-          <>
-            <RegisterForm />
-            <LoginForm />
-          </>
-        )}
+      ) : (
+        <>
+          <RegisterForm />
+          <LoginForm />
+        </>
+      )}
     </>
- );
+  );
 }
 
 export default UserPage;

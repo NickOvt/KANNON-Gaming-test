@@ -38,19 +38,21 @@ function resultOfSpin(spinResult){
 router.get("/slot", auth, (req, res) => {
   const resultOfSpinValue = resultOfSpin(spin([reel1, reel2, reel3]));
  
-  if(resultOfSpinValue.isWin) {
-    User.findById(req.user.id)
-    .select("-password")
-    .then(user => {
-      const currentUserCoins = user.coins;
-      const newCoins = currentUserCoins + resultOfSpinValue.coinsWon;
-      User.updateOne({_id: user._id}, {coins: newCoins}, (err, user) => {
+  User.findById(req.user.id)
+  .select("-password")
+  .then(user => {
+    const currentUserCoins = user.coins;
+    console.log(currentUserCoins);
+    if(currentUserCoins - 1 > 0) {
+      const newCoins = currentUserCoins + resultOfSpinValue.coinsWon - 1;
+      User.updateOne({_id: user._id}, {coins: newCoins}, (err) => {
         if(err) console.log(err);
+        res.json(resultOfSpinValue);
       })
-    });
-  }
-
-  res.json(resultOfSpinValue);
+    } else {
+      res.status(400).json({msg: "Not enough coins"});
+    }
+  });
 });
 
 module.exports = router;

@@ -1,20 +1,20 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../actions/authActions';
-import {clearErrors} from '../../actions/errorActions';
+import { clearErrors } from '../../actions/errorActions';
 
 function LoginForm() {
   const [user, setUser] = useState({
     email: '',
-    password: ''
+    password: '',
   });
   const [msg, setMsg] = useState();
-  
+
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(error.id === 'LOGIN_FAIL') {
+    if (error.id === 'LOGIN_FAIL') {
       setMsg(error.msg.msg);
     } else {
       setMsg(null);
@@ -24,12 +24,12 @@ function LoginForm() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const {email, password} = user;
+    const { email, password } = user;
 
     const loginUser = {
       email,
-      password
-    }
+      password,
+    };
 
     // Attempt to login
     dispatch(login(loginUser));
@@ -44,7 +44,7 @@ function LoginForm() {
 
   return (
     <>
-      {msg ? (<h1>{msg}</h1>) : null}
+      {msg ? <h1>{msg}</h1> : null}
       <h4>Login</h4>
       <form onSubmit={onSubmit}>
         <label htmlFor='email'>E-mail</label>

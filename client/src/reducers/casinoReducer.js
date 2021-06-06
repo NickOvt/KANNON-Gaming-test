@@ -1,15 +1,12 @@
-import {
-  SPIN_LOADING,
-  SPIN_SUCCESS,
-  SPIN_FAIL
-} from '../actions/types';
+import { SPIN_LOADING, SPIN_SUCCESS, SPIN_FAIL } from '../actions/types';
 
 const initialState = {
-  coins: null
+  isLoading: null,
+  coinsWon: 0
 };
 
-export default function(state = initialState, action) {
-  switch(action.type) {
+export default function (state = initialState, action) {
+  switch (action.type) {
     case SPIN_LOADING:
       return {
         ...state,
@@ -19,12 +16,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         ...action.payload,
-        isLoading: false,
+        isLoading: false
       };
     case SPIN_FAIL:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
       };
     default:
       return state;
