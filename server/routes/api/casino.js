@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const auth = require("../../middleware/auth");
+const User = require('../../models/User');
 
 const reel1 = ["cherry", "lemon","apple", "lemon", "banana", "banana", "lemon", "lemon"];
 const reel2 = ["lemon", "apple", "lemon", "lemon", "cherry", "apple", "banana", "lemon"]
@@ -34,10 +36,18 @@ function resultOfSpin(spinResult, coins){
   }
 }
 
-router.post("/slot", async (req, res) => {
+router.get("/slot", auth, (req, res) => {
+  const resultOfSpin = resultOfSpin(spin([reel1, reel2, reel3]), req.body.coins);
+
+  const filter = req.user.id;
+  const update = { coins: resultOfSpin.coins }
+ 
+
+  User.findOneAndUpdate(filter, update, {
+    new: true
+  });
   
-  
-  res.json(resultOfSpin(spin([reel1, reel2, reel3]), req.body.coins));
+  res.json(resultOfSpin);
 });
 
 router.get("/", async (req, res) => {
