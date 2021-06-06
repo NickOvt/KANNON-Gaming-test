@@ -5,6 +5,7 @@ import { spin } from '../../actions/casinoActions';
 function SlotMachine() {
   const [msg, setMsg] = useState();
   
+  const coins = useSelector(state => state.auth.user.coins);
   const error = useSelector(state => state.error);
   const dispatch = useDispatch();
 
@@ -23,7 +24,7 @@ function SlotMachine() {
   return (
     <>
         {msg && (<h5>{msg}</h5>)}
-        
+        <p>You have {coins && coins} coins</p>
         <button onClick={onClick}>Spin!</button>
     </>
   );

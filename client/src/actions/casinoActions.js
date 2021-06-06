@@ -10,7 +10,6 @@ import { tokenConfig } from './authActions';
 export const spin = () => (dispatch, getState) => {
   // Spin loading
   dispatch({type: SPIN_LOADING});
-  console.info(tokenConfig(getState))
 
   axios
       .get('/api/casino/slot', tokenConfig(getState))
@@ -24,7 +23,7 @@ export const spin = () => (dispatch, getState) => {
       dispatch({
         type: SPIN_FAIL,
       });
-      })
+    })
 
-  
+
 }
