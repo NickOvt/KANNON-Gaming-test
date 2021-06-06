@@ -5,6 +5,7 @@ import CountryFilter from './components/allCountriesFilter/CountriesFilter';
 import RegisterForm from './components/auth/registerForm';
 import Logout from './components/auth/Logout';
 import Login from './components/auth/loginForm';
+import SlotMachine from './components/casino/SlotMachine';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -23,6 +24,7 @@ function App() {
       <RegisterForm />
       <Logout />
       <Login />
+      <SlotMachine />
     </Provider>
   );
 }
