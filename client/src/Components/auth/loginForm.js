@@ -9,8 +9,7 @@ function LoginForm() {
     password: ''
   });
   const [msg, setMsg] = useState();
-
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 

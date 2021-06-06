@@ -34,7 +34,9 @@ function resultOfSpin(spinResult, coins){
   }
 }
 
-router.post("/slot", async (req, res) => { 
+router.post("/slot", async (req, res) => {
+  
+  
   res.json(resultOfSpin(spin([reel1, reel2, reel3]), req.body.coins));
 });
 

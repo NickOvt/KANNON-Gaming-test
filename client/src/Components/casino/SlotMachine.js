@@ -5,9 +5,8 @@ import { spin } from '../../actions/casinoActions';
 function SlotMachine() {
   const [msg, setMsg] = useState();
   
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const error = useSelector(state => state.error);
-  const userId = useSelector(state => state.auth._id);
+  const userId = useSelector(state => state.auth.user._id);
   const dispatch = useDispatch();
 
   useEffect(() => {
