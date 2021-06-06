@@ -6,7 +6,7 @@ function CountryList() {
   const [inputValue, setValue] = useState('');
 
   useEffect(() => {
-    fetch('/api')
+    fetch('/api/countries')
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);

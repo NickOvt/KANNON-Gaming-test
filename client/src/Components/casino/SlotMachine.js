@@ -1,19 +1,17 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { spin } from '../../actions/casinoActions';
+import { spin, loadCoins } from '../../actions/casinoActions';
 
 function SlotMachine() {
   const [msg, setMsg] = useState();
-  const [currentCoins, setCurrentCoins] = useState();
 
-  const coins = useSelector((state) => state.auth.user.coins);
-  const coinsWon = useSelector(state => state.casino.coinsWon);
+  const coinsTotal = useSelector(state => state.casino.coinsTotal);
   const error = useSelector((state) => state.error);
+  const spinMsg = useSelector(state => state.casino.spinResult);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if(coins) setCurrentCoins(coins);
-    console.log(coins);
+    dispatch(loadCoins());
   }, [])
 
   useEffect(() => {
@@ -24,9 +22,12 @@ function SlotMachine() {
     }
   }, [error]);
 
-  /*useEffect(() => {
-    setCurrentCoins(prevCoins => prevCoins + coinsWon);
-  }, [coinsWon])*/
+  useEffect(() => {
+    if(spinMsg && coinsTotal != 0) {
+      setMsg(`The result of the spin was ${spinMsg}`);
+    }
+  }, [spinMsg])
+
 
   const onClick = (e) => {
     dispatch(spin());
@@ -35,7 +36,7 @@ function SlotMachine() {
   return (
     <>
       {msg && <h5>{msg}</h5>}
-      <p>You have {(currentCoins > 0) ? currentCoins : 0} coins</p>
+      <p>You have {(coinsTotal > 0) ? coinsTotal : 0} coins</p>
       <button onClick={onClick}>Spin!</button>
     </>
   );

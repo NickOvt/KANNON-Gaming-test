@@ -6,7 +6,7 @@ function SingleCountry() {
 
   const [data, setData] = useState('');
   function getSingleCountry(inputValue) {
-    fetch(`/api/${inputValue}`)
+    fetch(`/api/countries/${inputValue}`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }

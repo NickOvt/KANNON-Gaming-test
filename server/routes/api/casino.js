@@ -47,7 +47,7 @@ router.get("/slot", auth, (req, res) => {
       const newCoins = currentUserCoins + resultOfSpinValue.coinsWon - 1;
       User.updateOne({_id: user._id}, {coins: newCoins}, (err) => {
         if(err) console.log(err);
-        res.json(resultOfSpinValue);
+        res.json({...resultOfSpinValue, coinsTotal: newCoins});
       })
     } else {
       res.status(400).json({msg: "Not enough coins"});

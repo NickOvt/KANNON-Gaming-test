@@ -8,7 +8,7 @@ function CountryList() {
   function getCountriesList(inputValue) {
     const countriesArray = inputValue.split(',');
     //fetch(`/api/?countries=${inputValue}`)
-    fetch('/api', {
+    fetch('/api/countries', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

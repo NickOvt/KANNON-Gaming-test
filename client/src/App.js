@@ -15,10 +15,10 @@ function App() {
 
   return (
     <Provider store={store}>
+      <UserPage />
       <SingleCountry />
       <CountryList />
       <CountryFilter />
-      <UserPage />
     </Provider>
   );
 }
