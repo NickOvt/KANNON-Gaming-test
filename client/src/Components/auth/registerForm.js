@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../../actions/authActions';
 import {clearErrors} from '../../actions/errorActions';
 
-function RegisterForm(props) {
+function RegisterForm() {
   const [user, setUser] = useState({
     name: '',
     email: '',

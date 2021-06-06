@@ -4,6 +4,7 @@ import CountryList from './components/countryList/CountryList';
 import CountryFilter from './components/allCountriesFilter/CountriesFilter';
 import RegisterForm from './components/auth/registerForm';
 import Logout from './components/auth/Logout';
+import Login from './components/auth/loginForm';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -21,6 +22,7 @@ function App() {
       <CountryFilter />
       <RegisterForm />
       <Logout />
+      <Login />
     </Provider>
   );
 }
