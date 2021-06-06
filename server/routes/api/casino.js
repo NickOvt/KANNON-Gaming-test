@@ -37,17 +37,17 @@ function resultOfSpin(spinResult, coins){
 }
 
 router.get("/slot", auth, (req, res) => {
-  const resultOfSpin = resultOfSpin(spin([reel1, reel2, reel3]), req.body.coins);
+  const resultOfSpinValue = resultOfSpin(spin([reel1, reel2, reel3]), req.user.coins);
 
   const filter = req.user.id;
-  const update = { coins: resultOfSpin.coins }
+  const update = { coins: resultOfSpinValue.coins }
  
 
   User.findOneAndUpdate(filter, update, {
     new: true
   });
   
-  res.json(resultOfSpin);
+  res.json(req.user);
 });
 
 router.get("/", async (req, res) => {

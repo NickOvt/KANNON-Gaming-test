@@ -6,7 +6,6 @@ function SlotMachine() {
   const [msg, setMsg] = useState();
   
   const error = useSelector(state => state.error);
-  const userId = useSelector(state => state.auth.user._id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +17,7 @@ function SlotMachine() {
   }, [error])
 
   const onClick = (e) => {
-    dispatch(spin(userId));
+    dispatch(spin());
   }
 
   return (

@@ -5,33 +5,26 @@ import {
 } from './types';
 import { returnErrors } from './errorActions';
 import axios from 'axios';
+import { tokenConfig } from './authActions';
 
-export const spin = (id) => (dispatch) => {
+export const spin = () => (dispatch, getState) => {
   // Spin loading
   dispatch({type: SPIN_LOADING});
+  console.info(tokenConfig(getState))
 
-  // Headers
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
+  axios
+      .get('/api/casino/slot', tokenConfig(getState))
+      .then(res =>
+        dispatch({
+          type: SPIN_SUCCESS,
+          payload: res.data,
+        }))
+      .catch(err => {
+        dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch({
+        type: SPIN_FAIL,
+      });
+      })
 
-  const body = JSON.stringify({ id });
-
-  axios.post('/api/casino/slot', body, config)
-  .then(res => 
-    dispatch({
-      type: SPIN_SUCCESS,
-      payload: res.data
-    })
-  )
-  .catch(err => {
-    dispatch(
-      returnErrors(err.response.data, err.response.status, 'SPIN_FAIL')
-    );
-    dispatch({
-      type: SPIN_FAIL
-    });
-  }) 
+  
 }
