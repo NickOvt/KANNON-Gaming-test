@@ -3,7 +3,7 @@ import Country from '../Country';
 
 function CountryList() {
   const [countries, setCountries] = useState([]);
-  const [inputValue, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   // Get the input list, and find countries that partly match the specified countries' name
   function getCountriesList(inputValue) {
@@ -19,7 +19,6 @@ function CountryList() {
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);
-        console.log(data);
       });
   }
 
@@ -28,7 +27,7 @@ function CountryList() {
       <input
         type='text'
         value={inputValue}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <button type='submit' onClick={() => getCountriesList(inputValue)}>
         Submit

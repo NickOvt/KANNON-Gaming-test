@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Country from '../Country';
 
 function SingleCountry() {
-  const [inputValue, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState('');
 
   // Hit the api endpoint to retrieve data for the specified country
@@ -17,7 +17,7 @@ function SingleCountry() {
       <input
         type='text'
         value={inputValue}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       <button type='submit' onClick={() => getSingleCountry(inputValue)}>
         Submit

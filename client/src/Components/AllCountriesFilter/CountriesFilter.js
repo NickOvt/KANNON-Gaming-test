@@ -3,7 +3,7 @@ import Country from '../Country';
 
 function CountryList() {
   const [countries, setCountries] = useState([]);
-  const [inputValue, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   // Load all countries and filter them in the client
   useEffect(() => {
@@ -18,7 +18,7 @@ function CountryList() {
         type='text'
         placeholder='Enter filter'
         value={inputValue}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => setInputValue(e.target.value)}
       />
       {countries &&
         inputValue &&
