@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 
 import RegisterForm from '../components/auth/registerForm';
 import Logout from '../components/auth/Logout';

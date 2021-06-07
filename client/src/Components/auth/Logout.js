@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logout } from '../../actions/authActions';
 
 function Logout() {
   const dispatch = useDispatch();
 
   // On button click logout the user
-  const onClick = (e) => {
+  const onClick = () => {
     dispatch(logout());
   };
 

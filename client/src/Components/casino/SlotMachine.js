@@ -34,7 +34,7 @@ function SlotMachine() {
   }, [spinMsg]);
 
   // On button click spin the slot machine
-  const onClick = (e) => {
+  const onClick = () => {
     dispatch(spin());
   };
 
