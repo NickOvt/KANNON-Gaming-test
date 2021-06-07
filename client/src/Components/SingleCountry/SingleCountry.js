@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import Country from '../Country';
-import {singleCountryNameRegex} from '../../utils/regex';
+import { singleCountryNameRegex } from '../../utils/regex';
 
 function SingleCountry() {
   const [inputValue, setInputValue] = useState('');
@@ -10,46 +10,45 @@ function SingleCountry() {
   // Hit the api endpoint to retrieve data for the specified country
   function getSingleCountry(inputValue) {
     //Validate input
-    if(!inputValue) {
+    if (!inputValue) {
       setMsg('Country field cannot be empty');
       return;
-    }
-    else if(!singleCountryNameRegex.test(inputValue)) {
+    } else if (!singleCountryNameRegex.test(inputValue)) {
       setMsg('Invalid country name');
       return;
     } else {
       closeErrorAlert();
       fetch(`/api/countries/${inputValue}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if(data.msg) setMsg(data.msg);
-        else {
-          setData(data);
-        }
-      })
-      .catch(err => {
-        console.error(err);
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.msg) setMsg(data.msg);
+          else {
+            setData(data);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
   }
 
   const closeErrorAlert = () => {
     setMsg(null);
-  }
+  };
 
   return (
     <>
       <div className='row mt-4'>
-      {msg ? (
-            <div className='alert alert-dismissible alert-danger'>
-              <button
-                type='button'
-                className='btn-close'
-                onClick={closeErrorAlert}
-              ></button>
-              <span>{msg}</span>
-            </div>
-          ) : null}
+        {msg ? (
+          <div className='alert alert-dismissible alert-danger'>
+            <button
+              type='button'
+              className='btn-close'
+              onClick={closeErrorAlert}
+            ></button>
+            <span>{msg}</span>
+          </div>
+        ) : null}
         <div className='input-group'>
           <input
             type='text'

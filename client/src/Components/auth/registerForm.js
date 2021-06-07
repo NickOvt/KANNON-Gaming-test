@@ -54,7 +54,7 @@ function RegisterForm() {
     <>
       <div className='row mt-4'>
         <div className='col-lg-6'>
-        {msg ? (
+          {msg ? (
             <div className='alert alert-dismissible alert-danger'>
               <button
                 type='button'

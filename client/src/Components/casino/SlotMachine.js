@@ -20,7 +20,7 @@ function SlotMachine() {
   // Display error messages, if any
   useEffect(() => {
     if (error.id === 'SPIN_FAIL') {
-      setMsg({msg: error.msg.msg, isDanger: true});
+      setMsg({ msg: error.msg.msg, isDanger: true });
     } else {
       setMsg(null);
     }
@@ -30,7 +30,7 @@ function SlotMachine() {
   useEffect(() => {
     if (spinMsg && coinsTotal != 0) {
       const msgString = `The result of the spin was ${spinMsg}`;
-      setMsg({msg: msgString, isDanger: false});
+      setMsg({ msg: msgString, isDanger: false });
     }
   }, [spinMsg]);
 
@@ -41,18 +41,28 @@ function SlotMachine() {
 
   const clearCurrentErrors = () => {
     setMsg(null);
-  }
+  };
 
   return (
     <>
       {msg && (
-        <div className={`alert alert-dismissible alert-${msg.isDanger ? 'danger' : 'success'}`}>
-          <button type="button" className="btn-close" onClick={clearCurrentErrors}></button>
+        <div
+          className={`alert alert-dismissible alert-${
+            msg.isDanger ? 'danger' : 'success'
+          }`}
+        >
+          <button
+            type='button'
+            className='btn-close'
+            onClick={clearCurrentErrors}
+          ></button>
           <p>{msg.msg}</p>
         </div>
       )}
       <p>You have {coinsTotal > 0 ? coinsTotal : 0} coins</p>
-      <button onClick={onClick} className="btn btn-outline-primary mt-1">Spin!</button>
+      <button onClick={onClick} className='btn btn-outline-primary mt-1'>
+        Spin!
+      </button>
     </>
   );
 }
