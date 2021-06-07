@@ -3,19 +3,15 @@
 This is the repository for KANNON Gaming front-end react developer test
 
 ## Running in development
-As this project uses separate folders for backend and frontend you can run this project by executing  
-`npm run start`  
-or  
-`npm run server`  (to run with hotreloading using nodemon)
-**In the "server" folder**  
-  
-and
-`npm run start` (to run the webpack server)  
-**In the "client" folder**
+#### Installing dependencies:  
+In **client** and **server** folder run  
+`npm install`
 
-**BUT BEFORE THAT!**  
-There is a folder in the server folder `config`.  
-You need to add a file `default.json` in it, with the following structure:  
+#### Adding config files  
+Add a file `default.json` to the `config` folder in the `server` folder  
+You should have: `{rootFolder}/server/config/default.json`  
+  
+`default.json` must have the following structure:  
 ```
 {
   "mongoURI": "Your mongoDBUri",
@@ -25,9 +21,19 @@ You need to add a file `default.json` in it, with the following structure:
 - *mongoUri* : should be a connection string to your MongoDB(project uses MongoDB Atlas)
 - *jwtSecret* : is a string which will represent the secret key that the JWT will use to sign the tokens
 
+#### Starting the app in development
+As this project uses separate folders for backend and frontend you can run this project by executing  
+`npm run start`  
+or  
+`npm run server`  (to run with hotreloading using nodemon)
+**In the "server" folder**  
+  
+and In the **"client"** folder
+`npm run start` (to run the webpack server)  
+
 
 ## All Commands
-* These commands are available in **client** folder:  
+* These commands are available in **"client"** folder:  
 ```
 npm run start (start webpack dev server)
 npm run lint (use eslint to find errors)
