@@ -40,7 +40,7 @@ npm run lint (use eslint to find errors)
 npm run format (use prettifier to prettify JS)
 npm run webpack (to build the React frontend)
 ```
-* These commands are available in **server** folder:  
+* These commands are available in **"server"** folder:  
 ```
 npm run start (to run the server)
 npm run server (to run the server with hotreloading)
