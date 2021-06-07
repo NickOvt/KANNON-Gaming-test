@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const auth = require("../../middleware/auth");
+
+// Get User model
 const User = require('../../models/User');
 
+// Set the reels
 const reel1 = ["cherry", "lemon","apple", "lemon", "banana", "banana", "lemon", "lemon"];
 const reel2 = ["lemon", "apple", "lemon", "lemon", "cherry", "apple", "banana", "lemon"]
 const reel3 = ["lemon", "apple", "lemon", "apple", "cherry", "lemon", "banana", "lemon"]
 
+// Spin the slot machine and retrieve the spin result(random value from the reel array)
+/* spinResult has a format of:
+*  ['reel1result','reel2result','reel3result']
+*/
 function spin(arrayOfReels) {
   let spinResult = [];
   
@@ -17,6 +24,14 @@ function spin(arrayOfReels) {
   return spinResult;
 }
 
+
+// Retrieve the result of the spin of the slot machine(such as the actual array of spinResult, the coins won, and if the spin actually won anything)
+/*  function return: {
+*     spinResult -> object retrieve from the spin functions
+      coinsWon -> the amount of coins won through a spin
+      isWin -> true if won coins and false if coins stay the same, used to update the frontend
+*   }
+*/
 function resultOfSpin(spinResult){
   let coins = 0;
 
@@ -35,6 +50,11 @@ function resultOfSpin(spinResult){
   }
 }
 
+// Get and update coins in the DB
+/* Api path: /api/casino/slot/
+*  RequestType: GET
+*  Middleware: auth
+*/
 router.get("/slot", auth, (req, res) => {
   const resultOfSpinValue = resultOfSpin(spin([reel1, reel2, reel3]));
  

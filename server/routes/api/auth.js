@@ -5,19 +5,26 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
+// Get User model
 const User = require("../../models/User");
 
+/* Api path: /api/auth/
+*  RequestType: POST
+*/
 router.post("/", async (req, res) => {
-  const {email, password} = req.body;
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const {email, password} = req.body; // get sent user data email and password fields
+  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // Regex for email validation
 
   // Full validation
+  // Validate empty fields
   if( !email || !password) {
     return res.status(400).json({msg: "Please enter all fields"});
   }
+  // Validate to given regex(email format)
   if(emailRegex.test(email)) {
     return res.status(400).json({msg: "Invalid name or email"}); 
   }
+  // Validate password length
   if(password.length < 6) {
     return res.status(400).json({msg: "Password must be more than 6 symbols"}); 
   }
@@ -32,6 +39,7 @@ router.post("/", async (req, res) => {
     .then(isMatch => {
       if(!isMatch) return res.status(400).json({msg: "Invalid credentials"});
 
+      // Issue JWT token
       jwt.sign(
         {id: user.id},
         config.get('jwtSecret'),
@@ -53,6 +61,10 @@ router.post("/", async (req, res) => {
   });
 });
 
+/* Api path: /api/auth/user
+*  RequestType: GET
+*  Middleware: auth
+*/
 router.get("/user", auth, (req, res) => {
   User.findById(req.user.id)
   .select("-password")

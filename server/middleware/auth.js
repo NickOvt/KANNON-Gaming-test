@@ -1,6 +1,8 @@
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
+// Only real users can enter
+
 function auth(req, res, next) {
   const token = req.header('x-auth-token');
 
