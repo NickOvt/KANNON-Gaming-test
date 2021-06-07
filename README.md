@@ -1,6 +1,7 @@
 # KANNON-Gaming-test
 
-This is the repository for KANNON Gaming front-end react developer test
+This is the repository for KANNON Gaming front-end react developer test  
+App will be deployed and available on heroku any time soon: (*URL will come here*)
 
 ## Running in development
 #### Installing dependencies:  
