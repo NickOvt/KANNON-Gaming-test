@@ -16,10 +16,12 @@ function App() {
 
   return (
     <Provider store={store}>
-      <UserPage />
-      <SingleCountry />
-      <CountryList />
-      <CountryFilter />
+      <div className='container'>
+        <UserPage />
+        <SingleCountry />
+        <CountryList />
+        <CountryFilter />
+      </div>
     </Provider>
   );
 }

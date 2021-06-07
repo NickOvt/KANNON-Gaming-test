@@ -12,7 +12,7 @@ function Logout() {
 
   return (
     <>
-      <button onClick={onClick}>Logout</button>
+      <button onClick={onClick} className="btn btn-primary mt-4">Logout</button>
     </>
   );
 }

@@ -14,15 +14,25 @@ function SingleCountry() {
 
   return (
     <>
-      <input
-        type='text'
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button type='submit' onClick={() => getSingleCountry(inputValue)}>
-        Submit
-      </button>
-      {data && <Country name={data} />}
+      <div className='row'>
+        <div className='input-group mt-4'>
+          <input
+            type='text'
+            className='form-control'
+            placeholder='Single country name'
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button
+            type='submit'
+            className='btn btn-primary ms-2'
+            onClick={() => getSingleCountry(inputValue)}
+          >
+            Submit
+          </button>
+        </div>
+        {data && <Country name={data} />}
+      </div>
     </>
   );
 }

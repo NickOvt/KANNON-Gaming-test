@@ -4,7 +4,7 @@ import { spin, loadCoins } from '../../actions/casinoActions';
 
 function SlotMachine() {
   // Error or other messages state
-  const [msg, setMsg] = useState();
+  const [msg, setMsg] = useState({});
 
   // Get state from redux
   const coinsTotal = useSelector((state) => state.casino.coinsTotal);
@@ -20,7 +20,7 @@ function SlotMachine() {
   // Display error messages, if any
   useEffect(() => {
     if (error.id === 'SPIN_FAIL') {
-      setMsg(error.msg.msg);
+      setMsg({msg: error.msg.msg, isDanger: true});
     } else {
       setMsg(null);
     }
@@ -29,7 +29,8 @@ function SlotMachine() {
   // Display spin related message, if spin was successful
   useEffect(() => {
     if (spinMsg && coinsTotal != 0) {
-      setMsg(`The result of the spin was ${spinMsg}`);
+      const msgString = `The result of the spin was ${spinMsg}`;
+      setMsg({msg: msgString, isDanger: false});
     }
   }, [spinMsg]);
 
@@ -38,11 +39,20 @@ function SlotMachine() {
     dispatch(spin());
   };
 
+  const clearCurrentErrors = () => {
+    setMsg(null);
+  }
+
   return (
     <>
-      {msg && <h5>{msg}</h5>}
+      {msg && (
+        <div className={`alert alert-dismissible alert-${msg.isDanger ? 'danger' : 'success'}`}>
+          <button type="button" className="btn-close" onClick={clearCurrentErrors}></button>
+          <p>{msg.msg}</p>
+        </div>
+      )}
       <p>You have {coinsTotal > 0 ? coinsTotal : 0} coins</p>
-      <button onClick={onClick}>Spin!</button>
+      <button onClick={onClick} className="btn btn-outline-primary mt-1">Spin!</button>
     </>
   );
 }

@@ -24,18 +24,28 @@ function CountryList() {
 
   return (
     <>
-      <input
-        type='text'
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button type='submit' onClick={() => getCountriesList(inputValue)}>
-        Submit
-      </button>
-      {countries &&
-        countries.map((el) => {
-          return <Country key={el.name} name={el.name} />;
-        })}
+      <div className='row'>
+        <div className='input-group mt-4'>
+          <input
+            type='text'
+            className='form-control'
+            value={inputValue}
+            placeholder='List of countries separated by a comma'
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <button
+            type='submit'
+            className='btn btn-primary ms-2'
+            onClick={() => getCountriesList(inputValue)}
+          >
+            Submit
+          </button>
+        </div>
+        {countries &&
+          countries.map((el) => {
+            return <Country key={el.name} name={el.name} />;
+          })}
+      </div>
     </>
   );
 }

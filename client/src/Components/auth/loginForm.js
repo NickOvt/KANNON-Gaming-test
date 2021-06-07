@@ -44,28 +44,55 @@ function LoginForm() {
     });
   };
 
+  const closeErrorAlert = () => {
+    dispatch(clearErrors());
+  };
+
   return (
     <>
-      {msg ? <h1>{msg}</h1> : null}
-      <h4>Login</h4>
-      <form onSubmit={onSubmit}>
-        <label htmlFor='email'>E-mail</label>
-        <input
-          type='email'
-          name='email'
-          placeholder='Please enter your email'
-          onChange={onChange}
-        />
+      <div className='row mt-4'>
+        <div className='col-lg-6'>
+          {msg ? (
+            <div className='alert alert-dismissible alert-danger'>
+              <button
+                type='button'
+                className='btn-close'
+                onClick={closeErrorAlert}
+              ></button>
+              <span>{msg}</span>
+            </div>
+          ) : null}
+          <form onSubmit={onSubmit}>
+            <legend>Login</legend>
+            <fieldset>
+              <label htmlFor='email' className='form-label'>
+                E-mail
+              </label>
+              <input
+                type='email'
+                name='email'
+                className='form-control'
+                placeholder='Please enter your email'
+                onChange={onChange}
+              />
 
-        <label htmlFor='password'>Password</label>
-        <input
-          type='password'
-          name='password'
-          placeholder='Please enter your password'
-          onChange={onChange}
-        />
-        <button type='submit'>Login</button>
-      </form>
+              <label htmlFor='password' className='form-label'>
+                Password
+              </label>
+              <input
+                type='password'
+                name='password'
+                className='form-control'
+                placeholder='Please enter your password'
+                onChange={onChange}
+              />
+              <button type='submit' className='btn btn-primary mt-2'>
+                Login
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </>
   );
 }
