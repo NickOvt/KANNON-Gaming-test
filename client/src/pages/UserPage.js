@@ -7,6 +7,7 @@ import LoginForm from '../components/auth/loginForm';
 import SlotMachine from '../components/casino/SlotMachine';
 
 function UserPage() {
+  // Get the isAuthenticated state from redux store to conditionally render appropriate components
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   return (

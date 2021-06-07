@@ -16,6 +16,7 @@ export const loadUser = () => (dispatch, getState) => {
   // User loading
   dispatch({ type: USER_LOADING });
 
+  // Hit the api endpoint and retrieve user
   axios
     .get('/api/auth/user', tokenConfig(getState))
     .then((res) =>
@@ -46,6 +47,7 @@ export const register =
     // Request body
     const body = JSON.stringify({ name, email, password });
 
+    // Hit the api endpoint and register a user
     axios
       .post('/api/users', body, config)
       .then((res) =>

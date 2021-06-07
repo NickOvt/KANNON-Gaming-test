@@ -4,6 +4,7 @@ import { login } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
 function LoginForm() {
+  // Set local user object state and messages(msg) state
   const [user, setUser] = useState({
     email: '',
     password: '',
@@ -13,6 +14,7 @@ function LoginForm() {
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 
+  // Display error messages, if any
   useEffect(() => {
     if (error.id === 'LOGIN_FAIL') {
       setMsg(error.msg.msg);

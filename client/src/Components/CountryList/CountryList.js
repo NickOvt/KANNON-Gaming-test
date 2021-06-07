@@ -5,9 +5,9 @@ function CountryList() {
   const [countries, setCountries] = useState([]);
   const [inputValue, setValue] = useState('');
 
+  // Get the input list, and find countries that partly match the specified countries' name
   function getCountriesList(inputValue) {
     const countriesArray = inputValue.split(',');
-    //fetch(`/api/?countries=${inputValue}`)
     fetch('/api/countries', {
       method: 'POST',
       headers: {

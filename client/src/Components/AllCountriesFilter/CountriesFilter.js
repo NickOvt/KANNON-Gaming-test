@@ -5,6 +5,7 @@ function CountryList() {
   const [countries, setCountries] = useState([]);
   const [inputValue, setValue] = useState('');
 
+  // Load all countries and filter them in the client
   useEffect(() => {
     fetch('/api/countries')
       .then((res) => res.json())

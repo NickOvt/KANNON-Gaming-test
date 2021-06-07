@@ -3,8 +3,9 @@ import Country from '../Country';
 
 function SingleCountry() {
   const [inputValue, setValue] = useState('');
-
   const [data, setData] = useState('');
+
+  // Hit the api endpoint to retrieve data for the specified country
   function getSingleCountry(inputValue) {
     fetch(`/api/countries/${inputValue}`)
       .then((res) => res.json())

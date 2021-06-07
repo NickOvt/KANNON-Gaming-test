@@ -4,6 +4,7 @@ import { register } from '../../actions/authActions';
 import { clearErrors } from '../../actions/errorActions';
 
 function RegisterForm() {
+  // Set local user object and messages(msg) state
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -14,6 +15,7 @@ function RegisterForm() {
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
 
+  // Display errors, if any
   useEffect(() => {
     if (error.id === 'REGISTER_FAIL') {
       setMsg(error.msg.msg);

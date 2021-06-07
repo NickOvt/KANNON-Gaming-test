@@ -1,10 +1,15 @@
-import { SPIN_LOADING, SPIN_SUCCESS, SPIN_FAIL, GET_CASINO_COINS } from '../actions/types';
+import {
+  SPIN_LOADING,
+  SPIN_SUCCESS,
+  SPIN_FAIL,
+  GET_CASINO_COINS,
+} from '../actions/types';
 
 const initialState = {
   isLoading: null,
   coinsTotal: 0,
   coinsWon: 0,
-  spinResult: null
+  spinResult: null,
 };
 
 export default function (state = initialState, action) {
@@ -18,7 +23,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         ...action.payload,
-        isLoading: false
+        isLoading: false,
       };
     case SPIN_FAIL:
       return {
@@ -28,8 +33,8 @@ export default function (state = initialState, action) {
     case GET_CASINO_COINS: {
       return {
         ...state,
-        coinsTotal: action.payload.coins
-      }
+        coinsTotal: action.payload.coins,
+      };
     }
     default:
       return state;
