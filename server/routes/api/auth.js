@@ -17,12 +17,12 @@ router.post("/", async (req, res) => {
 
   // Full validation
   // Validate empty fields
-  if( !email || !password) {
+  if(!email || !password) {
     return res.status(400).json({msg: "Please enter all fields"});
   }
   // Validate to given regex(email format)
-  if(emailRegex.test(email)) {
-    return res.status(400).json({msg: "Invalid name or email"}); 
+  if(!emailRegex.test(email)) {
+    return res.status(400).json({msg: "Invalid email"}); 
   }
   // Validate password length
   if(password.length < 6) {
