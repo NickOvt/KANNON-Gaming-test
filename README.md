@@ -4,7 +4,7 @@ This is the repository for KANNON Gaming front-end react developer test
 
 ## Running in development
 #### Installing dependencies:  
-In **client** and **server** folder run  
+In **client** and **server** folders run:  
 `npm install`
 
 #### Adding config files  
