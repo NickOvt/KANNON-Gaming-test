@@ -23,6 +23,9 @@ router.get("/:countryName", async (req, response) => {
   fetch(`https://restcountries.eu/rest/v2/name/${req.params.countryName}`)
     .then((res) => res.json())
     .then((data) => {
+      const obj = data.find(o => o.name == req.params.countryName || o.nativeName == req.params.countryName);
+
+      if(obj == undefined) return response.status(400).json({msg: "No such country"});
       response.json(data[0].name);
     });
 });
@@ -40,13 +43,16 @@ router.post("/", async (req, response) => {
   fetch("https://restcountries.eu/rest/v2/all")
     .then((res) => res.json())
     .then((data) => {
-      response.json(
-        data.filter((country) =>
-          countriesArray.some((n) =>
-            country.name.toLowerCase().includes(n.toLowerCase())
-          )
-        )
-      );
+      const filteredData = data.filter((country) =>
+      countriesArray.some((n) =>
+        country.name.toLowerCase().includes(n.toLowerCase()) ||
+        country.nativeName.toLowerCase().includes(n.toLowerCase())
+      )
+    );
+
+    if(!filteredData || filteredData.length <= 0) return response.status(400).json({msg: "No such countries"});
+
+    response.json(filteredData);
     });
 });
 
