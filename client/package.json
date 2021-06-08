@@ -4,7 +4,7 @@
   "description": "Test exercise for KANON gaming",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack",
+    "build": "webpack",
     "start": "webpack serve",
     "lint": "eslint ./src",
     "lint:fix": "npm run lint -- --fix",
