@@ -7,7 +7,7 @@
     "build": "webpack",
     "start": "webpack serve",
     "lint": "eslint ./src",
-    "lint:fix": "npm run lint -- --fix",
+    "lint:fix": "eslint --fix ./src",
     "format": "prettier --write \"**/*.{js,jsx,json,md,html,css}\""
   },
   "keywords": [],
