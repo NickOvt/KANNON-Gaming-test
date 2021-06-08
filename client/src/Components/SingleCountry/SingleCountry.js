@@ -38,28 +38,41 @@ function SingleCountry() {
 
   return (
     <>
+<<<<<<< HEAD
       <div className='row mt-4'>
         {msg ? (
           <div className='alert alert-dismissible alert-danger'>
             <button
               type='button'
               className='btn-close'
+=======
+      <div className="row mt-4">
+        {msg ? (
+          <div className="alert alert-dismissible alert-danger">
+            <button
+              type="button"
+              className="btn-close"
+>>>>>>> dev1_fixes
               onClick={closeErrorAlert}
             ></button>
             <span>{msg}</span>
           </div>
         ) : null}
+<<<<<<< HEAD
         <div className='input-group'>
+=======
+        <div className="input-group">
+>>>>>>> dev1_fixes
           <input
-            type='text'
-            className='form-control'
-            placeholder='Single country name'
+            type="text"
+            className="form-control"
+            placeholder="Single country name"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
           <button
-            type='submit'
-            className='btn btn-primary ms-2'
+            type="submit"
+            className="btn btn-primary ms-2"
             onClick={() => getSingleCountry(inputValue)}
           >
             Submit

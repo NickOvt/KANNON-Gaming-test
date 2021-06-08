@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div className='container'>
+      <div className="container">
         <UserPage />
         <SingleCountry />
         <CountryList />
