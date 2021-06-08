@@ -1,6 +1,7 @@
 # KANNON-Gaming-test
 
-This is the repository for KANNON Gaming front-end react developer test
+This is the repository for KANNON Gaming front-end react developer test  
+App will be deployed and available on heroku any time soon: (*URL will come here*)
 
 ## Running in development
 #### Installing dependencies:  
@@ -40,7 +41,7 @@ npm run lint (use eslint to find errors)
 npm run format (use prettifier to prettify JS)
 npm run webpack (to build the React frontend)
 ```
-* These commands are available in **server** folder:  
+* These commands are available in **"server"** folder:  
 ```
 npm run start (to run the server)
 npm run server (to run the server with hotreloading)
