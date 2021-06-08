@@ -38,13 +38,14 @@ and In the **"client"** folder
 ```
 npm run start (start webpack dev server)
 npm run lint (use eslint to find errors)
-npm run format (use prettifier to prettify JS)
+npm run format (use prettier to prettify files)
 npm run webpack (to build the React frontend)
 ```
 * These commands are available in **"server"** folder:  
 ```
 npm run start (to run the server)
 npm run server (to run the server with hotreloading)
+npm run format (use prettier to prettify files)
 ```
 
 
