@@ -39,7 +39,7 @@ and In the **"client"** folder
 npm run start (start webpack dev server)
 npm run lint (use eslint to find errors)
 npm run format (use prettier to prettify files)
-npm run webpack (to build the React frontend)
+npm run build (to build the React frontend)
 ```
 * These commands are available in **"server"** folder:  
 ```
