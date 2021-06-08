@@ -14,17 +14,17 @@ function CountryList() {
 
   return (
     <>
-      <div className='row'>
-        <div className='input-group mt-4'>
+      <div className="row">
+        <div className="input-group mt-4">
           <input
-            type='text'
-            placeholder='Enter filter'
-            className='form-control'
+            type="text"
+            placeholder="Enter filter"
+            className="form-control"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
         </div>
-        <div className='mt-1'>
+        <div className="mt-1">
           {countries &&
             inputValue &&
             countries

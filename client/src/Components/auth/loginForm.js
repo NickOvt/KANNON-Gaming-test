@@ -50,13 +50,13 @@ function LoginForm() {
 
   return (
     <>
-      <div className='row mt-4'>
-        <div className='col-lg-6'>
+      <div className="row mt-4">
+        <div className="col-lg-6">
           {msg ? (
-            <div className='alert alert-dismissible alert-danger'>
+            <div className="alert alert-dismissible alert-danger">
               <button
-                type='button'
-                className='btn-close'
+                type="button"
+                className="btn-close"
                 onClick={closeErrorAlert}
               ></button>
               <span>{msg}</span>
@@ -65,28 +65,28 @@ function LoginForm() {
           <form onSubmit={onSubmit}>
             <legend>Login</legend>
             <fieldset>
-              <label htmlFor='email' className='form-label'>
+              <label htmlFor="email" className="form-label">
                 E-mail
               </label>
               <input
-                type='email'
-                name='email'
-                className='form-control'
-                placeholder='Please enter your email'
+                type="email"
+                name="email"
+                className="form-control"
+                placeholder="Please enter your email"
                 onChange={onChange}
               />
 
-              <label htmlFor='password' className='form-label'>
+              <label htmlFor="password" className="form-label">
                 Password
               </label>
               <input
-                type='password'
-                name='password'
-                className='form-control'
-                placeholder='Please enter your password'
+                type="password"
+                name="password"
+                className="form-control"
+                placeholder="Please enter your password"
                 onChange={onChange}
               />
-              <button type='submit' className='btn btn-primary mt-2'>
+              <button type="submit" className="btn btn-primary mt-2">
                 Login
               </button>
             </fieldset>
