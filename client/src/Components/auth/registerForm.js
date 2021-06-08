@@ -52,17 +52,10 @@ function RegisterForm() {
 
   return (
     <>
-<<<<<<< HEAD
-      <div className='row mt-4'>
-        <div className='col-lg-6'>
-          {msg ? (
-            <div className='alert alert-dismissible alert-danger'>
-=======
       <div className="row mt-4">
         <div className="col-lg-6">
           {msg ? (
             <div className="alert alert-dismissible alert-danger">
->>>>>>> dev1_fixes
               <button
                 type="button"
                 className="btn-close"

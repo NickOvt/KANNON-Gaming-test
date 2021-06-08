@@ -12,11 +12,7 @@ function Logout() {
 
   return (
     <>
-<<<<<<< HEAD
-      <button onClick={onClick} className='btn btn-primary mt-4'>
-=======
       <button onClick={onClick} className="btn btn-primary mt-4">
->>>>>>> dev1_fixes
         Logout
       </button>
     </>

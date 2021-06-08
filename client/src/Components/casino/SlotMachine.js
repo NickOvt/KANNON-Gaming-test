@@ -52,24 +52,15 @@ function SlotMachine() {
           }`}
         >
           <button
-<<<<<<< HEAD
-            type='button'
-            className='btn-close'
-=======
             type="button"
             className="btn-close"
->>>>>>> dev1_fixes
             onClick={clearCurrentErrors}
           ></button>
           <p>{msg.msg}</p>
         </div>
       )}
       <p>You have {coinsTotal > 0 ? coinsTotal : 0} coins</p>
-<<<<<<< HEAD
-      <button onClick={onClick} className='btn btn-outline-primary mt-1'>
-=======
       <button onClick={onClick} className="btn btn-outline-primary mt-1">
->>>>>>> dev1_fixes
         Spin!
       </button>
     </>
