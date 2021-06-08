@@ -6,22 +6,22 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   coins: {
     type: Number,
     required: false,
-    default: 20
-  }
+    default: 20,
+  },
 });
 
 module.exports = User = mongoose.model('user', UserSchema);
