@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import SingleCountry from './components/singleCountry/singlecountry';
-import CountryList from './components/countryList/countrylist';
-import CountryFilter from './components/allCountriesFilter/countriesfilter';
+import SingleCountry from './components/singlecountry/singlecountry';
+import CountryList from './components/countrylist/countrylist';
+import CountryFilter from './components/allcountriesfilter/countriesfilter';
 import UserPage from './pages/userpage';
 
 import { Provider } from 'react-redux';
