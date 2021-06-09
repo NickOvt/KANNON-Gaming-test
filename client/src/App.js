@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import SingleCountry from './components/singlecountry/singlecountry.js';
+/*import SingleCountry from './components/singlecountry/singlecountry.js';
 import CountryList from './components/countrylist/countrylist.js';
 import CountryFilter from './components/allcountriesfilter/countriesfilter.js';
-import UserPage from './pages/userpage.js';
+import UserPage from './pages/userpage.js';*/
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -17,10 +17,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="container">
-        <UserPage />
-        <SingleCountry />
-        <CountryList />
-        <CountryFilter />
+        
       </div>
     </Provider>
   );
