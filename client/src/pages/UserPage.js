@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import RegisterForm from '../components/auth/registerForm';
 import Logout from '../components/auth/Logout';
 import LoginForm from '../components/auth/loginForm';
-import SlotMachine from '../components/casino/SlotMachine';
+import SlotMachine from '../components/casino/slotmachine';
 
 function UserPage() {
   // Get the isAuthenticated state from redux store to conditionally render appropriate components

@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
-import Country from '../Country';
+import Country from '../country';
 
 function CountryList() {
   const [countries, setCountries] = useState([]);
