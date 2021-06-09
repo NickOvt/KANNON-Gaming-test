@@ -14,13 +14,15 @@
   "author": "Nikolai Ovtsinnikov",
   "license": "MIT",
   "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
     "@babel/core": "^7.14.3",
     "@babel/node": "^7.14.2",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
     "babel-loader": "^8.2.2",
-    "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "css-loader": "^5.2.6",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
@@ -33,9 +35,6 @@
     "style-loader": "^2.0.0",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2"
-  },
-  "dependencies": {
     "axios": "^0.21.1",
     "bootswatch": "^5.0.1",
     "prop-types": "^15.7.2",

@@ -10,12 +10,12 @@ const app = express();
 app.use(express.json());
 
 // In production make the express backend serve react frontend
-if (process.env.NODE_ENV === 'production') {
+
   app.use(express.static(path.join(__dirname, 'client', 'build')));
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
   });
-}
+
 
 const db = config.get('mongoURI');
 
