@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Country from '../country';
+import Country from '../Country';
 import { singleCountryNameRegex } from '../../utils/regex';
 
 function SingleCountry() {
