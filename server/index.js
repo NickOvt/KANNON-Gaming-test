@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const helmet = require('helmet');
 const path = require('path');
 const config = require('config'); // Gets fields from config/default.json file
 
@@ -10,14 +9,12 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 
-// helmet for protection
-app.use(helmet());
 
 // In production make the express backend serve react frontend
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '/../', 'client', 'build')));
+  app.use(express.static(path.join(__dirname, '../client', 'build')));
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../', 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '../client', 'build', 'index.html'));
   });
 }
 
