@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const helmet = require('helmet');
 const path = require('path');
 const config = require('config'); // Gets fields from config/default.json file
 
@@ -9,9 +8,6 @@ const PORT = process.env.PORT || 3000;
 // Instantiate express and use express.json() for POST requests
 const app = express();
 app.use(express.json());
-
-// helmet for protection
-app.use(helmet());
 
 // In production make the express backend serve react frontend
 if (process.env.NODE_ENV === 'production') {

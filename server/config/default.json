@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Kolarussia12345:qsUSJpzqISfCPP1Y@cluster0.cu2ug.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  "jwtSecret": "superSecretJWTKey"
+}
