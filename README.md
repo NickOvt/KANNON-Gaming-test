@@ -3,6 +3,8 @@
 This is the repository for KANNON Gaming front-end react developer test  
 Deployed app url: https://radiant-citadel-71885.herokuapp.com/
 
+Check ***Production*** branch for code related to the deployment process
+
 ## Running in development
 #### Installing dependencies:  
 In **client** and **server** folders run:  
